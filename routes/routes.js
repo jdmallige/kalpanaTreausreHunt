@@ -83,12 +83,14 @@ module.exports= function(app,server){
     
     
     app.post('/register',function(req,res){
-       
+       var d=new Date();
+       d.setHours(d.getHours()+5);
+       d.setMinutes(d.getMinutes()+30)
       var udata={name:req.body.name,
         username:req.body.username,
         email:req.body.email,
         password:req.body.password,
-        date:moment().utcOffset("+05:30").format(),
+        date:d,
         level:0,
         college:req.body.college}
         // check if user name or email alredy exist
