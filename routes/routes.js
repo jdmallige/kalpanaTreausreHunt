@@ -85,7 +85,7 @@ module.exports= function(app,server){
     app.post('/register',function(req,res){
        var d=new Date();
        d.setHours(d.getHours()+5);
-       d.setMinutes(d.getMinutes()+30)
+       d.setMinutes(d.getMinutes()+30);
       var udata={name:req.body.name,
         username:req.body.username,
         email:req.body.email,
@@ -164,7 +164,10 @@ module.exports= function(app,server){
                     console.log("true");
                     ulevel++;
                    // console.log(ulevel);
-                    userModel.findOneAndUpdate({'email':email},{$set:{level:ulevel,date:moment().utcOffset("+05:30").format()}},function(err){
+                   var d=new Date();
+                    d.setHours(d.getHours()+5);
+                    d.setMinutes(d.getMinutes()+30)
+                    userModel.findOneAndUpdate({'email':email},{$set:{level:ulevel,date:d}},function(err){
                         console.log(err);
                     });
                     
