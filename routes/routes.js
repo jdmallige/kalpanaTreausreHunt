@@ -173,10 +173,21 @@ module.exports= function(app,server){
                     res.render("next");
                     
                 }
+                else
+                {
+                    userModel.findOne({'email':email},function(err,data){
+                        if(err)
+                        {console.log(err);res.send("404 login again");}
+                        else
+                        {   
+                            udata=data;
+                    res.render('main',{data:data});}
+                });
                 }
+            }
                 
             });
-            res.render('main',{data:data});
+            
 
         });
     }
