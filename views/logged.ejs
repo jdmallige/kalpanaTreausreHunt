@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+            body{
+               
+               
+                background: url('/assets/astronomy-1867616_1280.jpg') no-repeat 50%50%;
+                background-size: cover;
+            }
+            #an{
+        display: inline-block;
+        opacity: 0.7;
+        background-color: black;
+        margin:20px auto ;
+      padding:10px 20px;;
+      border-radius: 13px;
+     
+    }
+    </style>
+    <link rel="stylesheet" href="/assets/materialize.min.css">
+</head>
+<body>
+    <div class="container center">
+            <img class="responsive-img"src="./assets/Kalpana.png" alt="Kalpana"> 
+    <div class=" container center">
+                
+        
+            <div class="row white-text" id="an">
+            <h1>You are Logged In <%=data%></h1>
+            <a class="btn-large waves-effect waves-light" href="/main">Enter</a>     
+            </div>
+                      
+                      
+</div>
+</body>
+<script src="/assets/materialize.min.js"></script>
+<script>
+        var timer = setTimeout(function() {
+                    window.location='/main'
+                }, 3000);
+        </script>
+
+</html>

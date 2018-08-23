@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TreasureHunt</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/materialize.min.css">
+    <style>
+    body{
+       
+       
+        background: url('/assets/astronomy-1867616_1280.jpg') no-repeat 50%50%;
+        background-size: cover;
+    }
+    #t{
+        opacity: 0.7;
+        text-align: center;
+    }
+    #an{
+        display: inline-block;
+        opacity: 0.7;
+        background-color: black;
+        margin:20px auto ;
+      padding:10px 20px;;
+      border-radius: 13px;
+      height:200px;
+    }
+    a{
+        margin:25% auto;
+        width:60%;
+    }
+    #an:hover{
+        opacity: 0.85;
+    }
+    .activet{
+        background-color:grey;
+    }
+    input {
+             color: white;
+            }
+    span{
+        font-size: 50px;
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div class=" white-text container center">
+            <img class="responsive-img"src="./assets/Kalpana.png" alt="Kalpana"> 
+            <h3>Starts In</h3>
+           </div>
+           
+           <div class="container center">
+               <div class="row an">
+                   <div class="col s12">
+                       <span id="days"></span><st>Days</st>
+                       <span id="hours"></span><st>Hours</st>
+                       <span id="minutes"></span><st>Minutes</st>
+                       <span id="seconds"></span><st>Seconds</st>
+                    </div>
+               </div>
+           </div>
+           <div class="container center">
+               <div class="row">
+                <div class="col s12 l5" id="an">
+                    <a href="/register" class="waves-effect btn-large orange waves-block">Register</a>
+                </div>
+                <div class="col s12 l5 right" id="an">
+                        <a href="/login" class="waves-effect disabled btn-large orange waves-block center">Login</a>
+                    </div>
+    
+
+               </div> 
+               
+               </div>   
+   
+
+    
+   
+   
+
+<p class="center">Developed By- Jagdish</p>
+</body>
+
+<script src="/assets/materialize.min.js"></script>
+<script>
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+let countDown = new Date('Aug 25, 2018 18:30:00').getTime(),
+    x = setInterval(function() {
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+    },second);      
+
+</script>
+
+</html>
