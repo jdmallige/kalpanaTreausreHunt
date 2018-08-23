@@ -170,6 +170,7 @@ module.exports= function(app,server){
                     userModel.findOneAndUpdate({'email':email},{$set:{level:ulevel,date:d}},function(err){
                         console.log(err);
                     });
+                    res.render("next");
                     
                 }
                 }
