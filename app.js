@@ -6,7 +6,7 @@ var cookieParser=require('cookie-parser');
 
 
 //starting the server
-const server=app.listen(3000||process.env.PORT);
+const server=app.listen(process.env.PORT||3000);
 
 
 //setting the middleware
