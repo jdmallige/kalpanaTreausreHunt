@@ -159,6 +159,7 @@ module.exports= function(app,server){
                 else
                 {console.log(data);
                 var ans=req.body.ans;
+                ans=ans.toLowerCase();
                 if(ans==data.ans1||ans==data.ans2)
                 {
                     console.log("true");
