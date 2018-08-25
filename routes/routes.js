@@ -37,7 +37,7 @@ module.exports= function(app,server){
         res.render('register');
     });
 
-    app.get('/login',function(req,res){
+    app.get('/loginqwe',function(req,res){
 
         res.render('login');
     });
