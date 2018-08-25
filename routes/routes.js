@@ -63,10 +63,12 @@ module.exports= function(app,server){
             {   console.log(moment().utcOffset("+05:30").format());
                 console.log(Date());
                 var level= data.level;
+                var plevel=level*level*2;
+                console.log("p level is "+ plevel);
                 var username=data.username;
                
                 
-                res.render('main',{data:data});
+                res.render('main',{data:data,plevel:plevel});
 
             }
         });
@@ -91,7 +93,7 @@ module.exports= function(app,server){
         email:req.body.email,
         password:req.body.password,
         date:d,
-        level:0,
+        level:1,
         college:req.body.college}
         // check if user name or email alredy exist
        
@@ -109,7 +111,7 @@ module.exports= function(app,server){
         
     });
     
-    app.post('/login',function(req,res){
+    app.post('/loginqwe',function(req,res){
        
         var email=req.body.email;
         var pass=req.body.password;
@@ -135,6 +137,7 @@ module.exports= function(app,server){
 
      app.post('/main',function(req,res){
         var email=req.cookies.email;
+        var plevel;
         if(email)
         {
         var udata;
@@ -148,6 +151,7 @@ module.exports= function(app,server){
             {   
                 udata=data;
                 ulevel= data.level;
+                plevel=ulevel*ulevel*2;
                 //console.log("level is"+ulevel);
                 var username=data.username;
                 
@@ -182,7 +186,7 @@ module.exports= function(app,server){
                         else
                         {   
                             udata=data;
-                    res.render('main',{data:data});}
+                    res.render('main',{data:data,plevel:plevel});}
                 });
                 }
             }
@@ -203,7 +207,7 @@ module.exports= function(app,server){
      }); 
 
      app.get('/leader',function(req,res){
-      var q=  userModel.find({}).sort({'level':-1,'date':1}).limit(40);
+      var q=  userModel.find({}).sort({'level':-1,'date':1}).limit(30);
         q.exec(function(err,data){
             if(err)
             console.log(err);

@@ -24,8 +24,8 @@
         background-color: black;
         margin:20px auto ;
       padding:10px 20px;;
-      border-radius: 13px;
-      height:200px;
+      border-radius: 17px;
+      height:220px;
     }
     a{
         margin:25% auto;
@@ -33,6 +33,7 @@
     }
     #an:hover{
         opacity: 0.85;
+        transition-duration: .5s;
     }
     .activet{
         background-color:grey;
@@ -43,6 +44,10 @@
     span{
         font-size: 50px;
         color: red;
+    }
+    a:hover{
+        font-size:25px;
+        transition-duration: 0.6s;
     }
     </style>
 </head>
@@ -81,7 +86,7 @@
    
    
 
-<p class="center">Developed By- Jagdish</p>
+<p class="center">Developed By- <a href="https://github.com/jdmallige">Jagdish</a></p>
 </body>
 
 <script src="/assets/materialize.min.js"></script>
@@ -91,11 +96,11 @@ const second = 1000,
       hour = minute * 60,
       day = hour * 24;
 
-let countDown = new Date('Aug 25, 2018 18:30:00').getTime(),
+let count = new Date('Aug 26, 2018 18:30:00').getTime(),
     x = setInterval(function() {
 
       let now = new Date().getTime(),
-          distance = countDown - now;
+          distance = count - now;
 
       document.getElementById('days').innerText = Math.floor(distance / (day)),
         document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
