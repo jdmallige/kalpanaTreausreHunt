@@ -23,7 +23,7 @@ var userModel=mongoose.model('users',userSchema);
 
 mongoose.connect('mongodb://jagdish123:bryant824@ds125862.mlab.com:25862/kalpana',{ useNewUrlParser: true });
 
-module.exports= function(app,server){
+module.exports= function(app){
     app.use(bodyParser.urlencoded({extended:true}));
     // index  get route
     app.get('/',function(req,res){
@@ -118,8 +118,10 @@ module.exports= function(app,server){
         console.log(pass)
 
         userModel.findOne({'email':email,'password':pass},function(err,data){
-            if(err)
-            console.log(err);
+            if(data==null)
+            {
+            res.render('404',{err:"Wrong user name and pass Try again"});
+            }
             else
             {   res.cookie('email',email,{maxAge:2*60*60*60*1000,httpOnly:true});
                 res.render('logged',{data:data.name});                

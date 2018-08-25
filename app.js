@@ -15,5 +15,5 @@ var bp=app.use(bodyParser.urlencoded({extended:true}));
 app.use('/assets',express.static('assets'));
 app.use(cookieParser());
 
-routes(app,server);
+routes(app);
 
