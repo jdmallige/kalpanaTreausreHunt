@@ -26,7 +26,7 @@ mongoose.connect('mongodb://jagdish123:bryant824@ds125862.mlab.com:25862/kalpana
 module.exports= function(app){
     app.use(bodyParser.urlencoded({extended:true}));
     // index  get route
-    app.get('/q',function(req,res){
+    app.get('/',function(req,res){
         res.render('index');
     });
 
@@ -51,7 +51,7 @@ module.exports= function(app){
         res.render('about');
     });
     //main get req
-    app.get('/mainqwe',function(req,res){
+    app.get('/main',function(req,res){
         var email=req.cookies.email;
         if(email)
         {
@@ -211,7 +211,7 @@ module.exports= function(app){
      }); 
 
      app.get('/leader',function(req,res){
-      var q=  userModel.find({}).sort({'level':-1,'date':1}).limit(80);
+      var q=  userModel.find({}).sort({'level':-1,'date':1}).limit(30);
         q.exec(function(err,data){
             if(err)
             console.log(err);
