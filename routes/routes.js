@@ -37,7 +37,7 @@ module.exports= function(app){
         res.render('register');
     });
 
-    app.get('/loginqwe',function(req,res){
+    app.get('/login',function(req,res){
 
         res.render('login');
     });
@@ -57,8 +57,10 @@ module.exports= function(app){
         {
         console.log(email+"is email");
         userModel.findOne({'email':email},function(err,data){
-            if(err)
-            {console.log(err);res.send("404 login again");}
+            if(data==null)
+            {
+            res.render('404',{err:"Wrong Email or pass Try again"});
+            }
             else
             {   console.log(moment().utcOffset("+05:30").format());
                 console.log(Date());
@@ -120,7 +122,7 @@ module.exports= function(app){
         userModel.findOne({'email':email,'password':pass},function(err,data){
             if(data==null)
             {
-            res.render('404',{err:"Wrong user name and pass Try again"});
+            res.render('404',{err:"Wrong Email or pass Try again"});
             }
             else
             {   res.cookie('email',email,{maxAge:2*60*60*60*1000,httpOnly:true});
@@ -148,13 +150,13 @@ module.exports= function(app){
         
         userModel.findOne({'email':email},function(err,data){
             if(err)
-            {console.log(err);res.send("404 login again");}
+            {console.log("ayyya");res.render("404",{err: "login again"});}
             else
             {   
                 udata=data;
                 ulevel= data.level;
                 plevel=ulevel*ulevel*2;
-                //console.log("level is"+ulevel);
+                console.log("level is"+ulevel);
                 var username=data.username;
                 
             }
