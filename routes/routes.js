@@ -111,7 +111,7 @@ module.exports= function(app){
         
     });
     
-    app.post('/loginqwe',function(req,res){
+    app.post('/login',function(req,res){
        
         var email=req.body.email;
         var pass=req.body.password;
