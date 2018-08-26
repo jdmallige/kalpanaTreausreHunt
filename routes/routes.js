@@ -51,7 +51,7 @@ module.exports= function(app){
         res.render('about');
     });
     //main get req
-    app.get('/main',function(req,res){
+    app.get('/mainqwe',function(req,res){
         var email=req.cookies.email;
         if(email)
         {
